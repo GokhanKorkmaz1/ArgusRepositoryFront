@@ -1,0 +1,59 @@
+<main role="main">
+    <br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+            <form [formGroup]="userAddForm" (ngSubmit)="add()" class="">
+                <h2 class="mt-3 pt-3">Add User</h2>
+                <hr>
+                <div class="form-group pt-3">
+                    <input type="text" id="name" formControlName="name" class="form-control" placeholder="Name" autofocus>
+                    <span class="help-block" *ngIf="userAddForm.controls['name'].errors?.['required'] && userAddForm.controls['name'].touched">Name is required</span>
+                   
+                </div>
+
+                <div class="form-group pt-3">
+                    <input type="text" id="surname" formControlName="surname"   class="form-control" placeholder="Surname" autofocus>
+                    <span class="help-block" *ngIf="userAddForm.controls['surname'].errors?.['required'] && userAddForm.controls['surname'].touched">Surname is required</span>
+
+                </div>
+
+                <div class="form-group pt-3">
+                    <input type="date" id="birthdate" formControlName="birthdate"  class="form-control" placeholder="Birthdate" autofocus>
+                    <span class="help-block" *ngIf="userAddForm.controls['birthdate'].errors?.['required'] && userAddForm.controls['birthdate'].touched">Birthdate is required</span>
+                </div>
+                
+                <div class="form-group pt-3 d-flex">
+                    <div class="col-1">
+                        <input type="radio" id="gender" name="gender" formControlName="gender" [value]=true>
+                        <label for="man">Man</label><br>
+                    </div>
+                    <div>
+                        <input type="radio" id="gender" name="gender"  formControlName="gender" [value]=false>
+                        <label for="woman"> Woman</label><br>
+                    </div>
+                    <span class="help-block" *ngIf="userAddForm.controls['gender'].errors?.['required'] && userAddForm.controls['gender'].touched">&nbsp;&nbsp;Gender is required</span>
+                </div>
+
+                <div class="form-group pt-3">
+                    <input type="email" id="email" formControlName="email"  class="form-control" placeholder="Email address" autofocus>
+                    <span class="help-block" *ngIf="userAddForm.controls['email'].errors?.['required'] && userAddForm.controls['email'].touched">Email is required</span>
+
+                </div>
+
+                <div class="form-group pt-3">
+                    <input type="text" id="phoneNumber" formControlName="phoneNumber"  class="form-control" placeholder="Phone number" autofocus>
+                    <span class="help-block" *ngIf="userAddForm.controls['phoneNumber'].errors?.['required'] && userAddForm.controls['phoneNumber'].touched">Phone number is required</span>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block mt-3" 
+                 [disabled]="!userAddForm.valid">Add</button>
+            </form>
+        </div>
+        <div class="col-6"> 
+            
+            <img src="https://www.ankarateknokent.com/wp-content/uploads/2019/01/argus-cover.jpg"
+             alt="Argus Logo"  class="image mt-5" style="width:100%;">
+        </div>
+    </div>
+    </div>
+</main>

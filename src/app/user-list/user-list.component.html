@@ -1,0 +1,21 @@
+<div class="container mt-3 pt-3">
+    <div class="col-9">
+        <div *ngFor="let user of users" class="list-group mx-0 w-auto mt-3">
+            <label class="list-group-item d-flex gap-2">
+                <span>
+                    {{user.name}} {{user.surname}}
+                    <small class="d-block text-muted">
+                        {{datePipe.transform(user.birthdate,'yyyy-MM-dd')}}
+                        <div *ngIf="user.gender==true; else woman">Man</div>
+                        <ng-template #woman>
+                            <div>Woman</div>
+                        </ng-template>
+                        {{user.email}}<br>
+                        {{user.phoneNumber}}
+                    </small>
+                </span>
+            </label>
+        </div>
+    </div>
+    <br>
+</div>
